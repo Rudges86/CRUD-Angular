@@ -14,10 +14,10 @@ export class ProductUpdateComponent implements OnInit {
   constructor(private productService: ProdutcServiceService, private router:Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    
     const id = this.route.snapshot.paramMap.get('id');
-    this.productService.readById(id).subscribe(product => {
-      this.product = product
-    })
+    this.productService.readById(id ?? '').subscribe((product: Product) =>{ this.product = product})
+    
   }
 
   updateProduct():void{
