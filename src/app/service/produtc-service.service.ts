@@ -37,4 +37,9 @@ export class ProdutcServiceService {
     const url = `${this.baseUrl}/${product.id}`
     return this.httpClient.put<Product>(url,product)
   }
+
+  delete (id:string):Observable<Product>{
+    const url = `${this.baseUrl}/${id}`
+    return this.httpClient.delete<Product>(url);
+  }
 }
